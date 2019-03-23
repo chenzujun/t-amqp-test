@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import java.io.IOException;
+
 /**
  * @description:
  * @author: mustang
@@ -113,12 +115,6 @@ public class RabbitConfig {
     public Queue secondQueue() {
         System.out.println("configuration secondQueue ........................");
         return new Queue(MULTIPLE_QUEUE_2);
-    }
-
-    @Bean(name="thirdQueue")
-    public Queue thirdQueue() {
-        System.out.println("configuration thirdQueue ........................");
-        return new Queue(MULTIPLE_QUEUE_3);
     }
 
     @Bean(name="defaultExchange")

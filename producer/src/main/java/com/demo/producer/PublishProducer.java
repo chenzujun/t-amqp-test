@@ -19,7 +19,7 @@ public class PublishProducer {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 500)
+//    @Scheduled(fixedDelay = 10000, initialDelay = 500)
     public void send(){
         String context = "PublishProducer : "+ new Date();
         System.out.println(context);

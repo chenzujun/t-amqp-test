@@ -19,7 +19,7 @@ public class WorkerQueueProducer {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    @Scheduled(fixedDelay = 5000, initialDelay = 500)
+//    @Scheduled(fixedDelay = 5000, initialDelay = 500)
     public void send() {
         String sendMsg = "worker queue " + new Date();
         System.out.println("WorkerQueueProducer : " + sendMsg);

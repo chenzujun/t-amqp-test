@@ -28,6 +28,6 @@ public class Sender2 {
     public void send2() {
         String context = "hello2 " + new Date();
         System.out.println("Sender : " + context);
-        this.secondRabbitTemplate.convertAndSend(RabbitConfig.MULTIPLE_QUEUE_1, context);
+        this.secondRabbitTemplate.convertAndSend(RabbitConfig.MULTIPLE_QUEUE_2, context);
     }
 }

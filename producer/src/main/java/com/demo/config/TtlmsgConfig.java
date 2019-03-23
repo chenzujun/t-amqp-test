@@ -45,8 +45,8 @@ public class TtlmsgConfig {
         return QueueBuilder.durable(TTL_MSG_QUEUE).withArguments(args).build();
     }
 
-    @Bean("deadLetterQueue")
-    public Queue deadLetterQueue() {
+    @Bean("deadMsgQueue")
+    public Queue deadMsgQueue() {
         return new Queue(DEAD_MSG_QUEUE);
     }
 
@@ -56,18 +56,18 @@ public class TtlmsgConfig {
      * @return the exchange
      */
     @Bean
-    public DirectExchange deadLetterExchange() {
+    public DirectExchange deadMsgExchange() {
         return new DirectExchange(DEAD_MSG_EXCHANGE);
     }
 
     @Bean
-    public Binding bindingQueue(Queue queue, DirectExchange deadLetterExchange) {
-        return BindingBuilder.bind(queue).to(deadLetterExchange).with(EXCHANGE_ROUTING_KEY);
+    public Binding bindingQueue(Queue queue, DirectExchange deadMsgExchange) {
+        return BindingBuilder.bind(queue).to(deadMsgExchange).with(EXCHANGE_ROUTING_KEY);
     }
 
     @Bean
-    public Binding deadLetterBinding(Queue deadLetterQueue,DirectExchange deadLetterExchange){
-        return BindingBuilder.bind(deadLetterQueue).to(deadLetterExchange).with(DEAD_EXCHANGE_ROUTING_KEY);
+    public Binding deadMsgBinding(Queue deadMsgQueue,DirectExchange deadMsgExchange){
+        return BindingBuilder.bind(deadMsgQueue).to(deadMsgExchange).with(DEAD_EXCHANGE_ROUTING_KEY);
     }
 
 }
